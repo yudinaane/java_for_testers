@@ -3,8 +3,8 @@ import static java.lang.Math.sqrt;
 public class Triangle {
 
     public static void main(String[] args) {
-        printPerimetrTriangle(5,4,3);
-        printSquareTriangle (5,4,3);
+        printPerimetrTriangle(5.,4.,3.);
+        printSquareTriangle (5.,4.,3.);
            }
 
     public static void printPerimetrTriangle(double a, double b, double c) {
