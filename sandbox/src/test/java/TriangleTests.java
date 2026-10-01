@@ -23,8 +23,22 @@ public class TriangleTests {
             //OK
         }
     }
-
+    @Test
+    void TestEqaulity (){
+        var t1 = new Triangle(1.,2.,3.);
+        var t2 =  new Triangle (1.,2.,3.);
+        Assertions.assertEquals (t1, t2);
     }
+
+
+    @Test
+    void TestEqaulity2 (){
+        var t1 = new Triangle(1.,2.,3.);
+        var t2 =  new Triangle (3.,2.,1.);
+        Assertions.assertEquals (t1, t2);
+    }
+    }
+
 
 
 
