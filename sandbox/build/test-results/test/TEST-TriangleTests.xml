@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TriangleTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-09-24T14:52:16.612Z" hostname="DESKTOP-15GNIA9" time="0.063">
+<testsuite name="TriangleTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-09-28T16:23:44.064Z" hostname="DESKTOP-15GNIA9" time="0.108">
   <properties/>
-  <testcase name="canCalculateSquareTriangle()" classname="TriangleTests" time="0.038"/>
-  <testcase name="canCalculatePerimeterTriangle()" classname="TriangleTests" time="0.007"/>
+  <testcase name="cannotTriangleInequality()" classname="TriangleTests" time="0.065"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
