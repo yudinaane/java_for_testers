@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GroupRemovalTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-04T09:47:35.177Z" hostname="DESKTOP-15GNIA9" time="0.195">
+<testsuite name="GroupRemovalTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-07T06:06:18.377Z" hostname="DESKTOP-15GNIA9" time="0.227">
   <properties/>
-  <testcase name="canRemoveGroup()" classname="GroupRemovalTests" time="0.194"/>
+  <testcase name="canRemoveGroup()" classname="GroupRemovalTests" time="0.226"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
