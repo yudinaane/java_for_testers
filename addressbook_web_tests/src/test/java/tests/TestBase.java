@@ -1,3 +1,5 @@
+package tests;
+
 import manager.ApplicationManagar;
 import org.junit.jupiter.api.BeforeEach;
 
