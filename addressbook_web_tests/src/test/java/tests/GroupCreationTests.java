@@ -10,23 +10,16 @@ public class GroupCreationTests extends TestBase {
 
     @Test
     public void сanCreateGroup() {
-        app.openGroupsPage();
-        app.createGroup(new GroupData("group name", "group header", "group footer"));
+        app.groups().createGroup(new GroupData("group name", "group header", "group footer"));
     }
 
     @Test
     public void сanCreateGroupWithEmptyName() {
-        app.openGroupsPage();
-        ApplicationManagar.driver.findElement(By.linkText("groups")).click();
-        app.createGroup(new GroupData());
+        app.groups().createGroup(new GroupData());
     }
 
     @Test
     public void сanCreateGroupWithNameOnly() {
-        app.openGroupsPage();
-        var emptyGroup= new GroupData();
-        var groupWithName = emptyGroup.withName("some name");
-        ApplicationManagar.driver.findElement(By.linkText("groups")).click();
-        app.createGroup(new GroupData().withName("some name"));
+        app.groups().createGroup(new GroupData().withName("some name"));
     }
 }
