@@ -12,5 +12,6 @@ public class LoginHelper extends HelperBase {
         type(By.name("user"),user);
         type(By.name("pass"),password);
         click(By.xpath("//input[@value=\'Login\']"));
-           }
+
+    }
 }
