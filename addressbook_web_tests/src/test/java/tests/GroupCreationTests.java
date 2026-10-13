@@ -7,7 +7,6 @@ import org.openqa.selenium.By;
 
 public class GroupCreationTests extends TestBase {
 
-
     @Test
     public void сanCreateGroup() {
         app.groups().createGroup(new GroupData("group name", "group header", "group footer"));

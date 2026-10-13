@@ -51,8 +51,6 @@ public class ApplicationManagar {
         } catch  (NoSuchElementException exeption) {
             return false;
         }
-
-
     }
 
 }

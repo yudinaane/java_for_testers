@@ -10,7 +10,6 @@ public class GroupModificationTests extends TestBase{
         if (!app.groups().isGroupPresent()) {
             app.groups().createGroup(new GroupData("group name", "group header", "group footer"));
         }
-
         app.groups().modifyGroup(new GroupData().withName("modified name"));
     }
     }

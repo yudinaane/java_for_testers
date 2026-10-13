@@ -13,8 +13,6 @@ public class TestBase {
             app = new ApplicationManagar();
         }
         app.init(System.getProperty("browser", "firefox"));
-
-
     }
 
 }
