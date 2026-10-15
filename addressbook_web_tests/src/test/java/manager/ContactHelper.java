@@ -46,6 +46,19 @@ public class ContactHelper {
         managar.driver.findElement(By.name("email2")).sendKeys(contact.email2());
         managar.driver.findElement(By.linkText("home")).click();
         //managar.driver.findElement(By.name("submit")).click();
-        managar.driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
+        managar.driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+    }
+
+    public void removeContact() {
+        openPageContact();
+        //managar.driver.findElement(By.cssSelector("input:nth-child(7)")).click();
+        managar.driver.findElement(By.xpath("//table[@id=\'maintable\']/tbody/tr[5]/td/input")).click();
+        managar.driver.findElement(By.name("delete")).click();
+        managar.driver.findElement(By.linkText("home page")).click();
+    }
+
+    public boolean isContactPreset() {
+        openPageContact();
+        return managar.isElementPresent(By.name("selected[]"));//под вопросом
     }
 }
