@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.ContactCreationTests" tests="2" skipped="0" failures="2" errors="0" timestamp="2026-10-15T03:49:36.521Z" hostname="DESKTOP-15GNIA9" time="9.317">
+  <properties/>
+  <testcase name="canCreateContactWithFieldToHome()" classname="tests.ContactCreationTests" time="9.266">
+    <failure message="org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='user']&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [b36ace99-706a-4b75-8702-03cf7ec72a73, findElement {value=user, using=name}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 2564, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: b36ace99-706a-4b75-8702-03cf7ec72a73" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='user']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b36ace99-706a-4b75-8702-03cf7ec72a73, findElement {value=user, using=name}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 2564, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b36ace99-706a-4b75-8702-03cf7ec72a73
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:252)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:667)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:432)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:426)
+	at manager.HelperBase.click(HelperBase.java:14)
+	at manager.HelperBase.type(HelperBase.java:18)
+	at manager.LoginHelper.login(LoginHelper.java:11)
+	at manager.ApplicationManagar.init(ApplicationManagar.java:31)
+	at tests.TestBase.setUp(TestBase.java:15)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <testcase name="canCreateContact()" classname="tests.ContactCreationTests" time="0.024">
+    <failure message="org.openqa.selenium.NoSuchElementException: Unable to locate element: add new&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [b36ace99-706a-4b75-8702-03cf7ec72a73, findElement {value=add new, using=link text}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 2564, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: b36ace99-706a-4b75-8702-03cf7ec72a73" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Unable to locate element: add new
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [b36ace99-706a-4b75-8702-03cf7ec72a73, findElement {value=add new, using=link text}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 2564, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: b36ace99-706a-4b75-8702-03cf7ec72a73
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:252)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:667)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:432)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:426)
+	at manager.ContactHelper.openPageContact(ContactHelper.java:15)
+	at tests.ContactCreationTests.canCreateContact(ContactCreationTests.java:13)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

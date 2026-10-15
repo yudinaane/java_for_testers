@@ -1,5 +1,6 @@
 package manager;
 
+import model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -11,8 +12,10 @@ public class ApplicationManagar {
     public static WebDriver driver;
     private LoginHelper session;
     private GroupHelper groups;
+    private ContactHelper contacts;
 
     public void init(String browser) {
+        //код для инициализации (Лек 2.6 8:50)
         if (driver == null) {
             if ("firefox".equals(browser)){
                 driver = new FirefoxDriver();
@@ -21,19 +24,19 @@ public class ApplicationManagar {
             } else {
                 throw  new IllegalArgumentException(String.format("Unkown browser %s", browser));
             }
-
+            //закрыть браузер после всех тестов-->@After удаляется
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
             driver.get("http://localhost/addressbook/");
-            driver.manage().window().setSize(new Dimension(550, 696));
+            driver.manage().window().setSize(new Dimension(1076, 640));
             session().login("admin", "secret");
         }
     }
 
-    public LoginHelper session(){
-        if (session == null) {
-            session = new LoginHelper(this);
+    public ContactHelper contacts(){
+        if (contacts == null) {
+            contacts = new ContactHelper(this);
         }
-        return session;
+        return contacts;
     }
 
     public GroupHelper groups(){
@@ -43,8 +46,23 @@ public class ApplicationManagar {
         return groups;
     }
 
+    public LoginHelper session(){
+        if (session == null) {
+            session = new LoginHelper(this);
+        }
+        return session;
+    }
+
 
     public boolean isElementPresent(By locator) {
+        try {
+            driver.findElement(locator);
+            return true;
+        } catch  (NoSuchElementException exeption) {
+            return false;
+        }
+    }
+    public boolean isElementPresentContact(By locator) {
         try {
             driver.findElement(locator);
             return true;

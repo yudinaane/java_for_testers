@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.GroupCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-12T04:31:06.980Z" hostname="DESKTOP-15GNIA9" time="10.104">
-  <properties/>
-  <testcase name="сanCreateGroup()" classname="tests.GroupCreationTests" time="7.914"/>
-  <testcase name="сanCreateGroupWithEmptyName()" classname="tests.GroupCreationTests" time="1.167"/>
-  <testcase name="сanCreateGroupWithNameOnly()" classname="tests.GroupCreationTests" time="0.997"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
