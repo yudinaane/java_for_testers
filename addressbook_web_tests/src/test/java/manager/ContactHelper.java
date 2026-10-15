@@ -16,7 +16,9 @@ public class ContactHelper {
         }
 
     }
+
     public void createContact(ContactData contact) {
+        openPageContact();
         managar.driver.findElement(By.name("firstname")).click();
         managar.driver.findElement(By.name("firstname")).sendKeys(contact.firstname());
         managar.driver.findElement(By.name("middlename")).click();
@@ -43,5 +45,7 @@ public class ContactHelper {
         managar.driver.findElement(By.name("email2")).click();
         managar.driver.findElement(By.name("email2")).sendKeys(contact.email2());
         managar.driver.findElement(By.linkText("home")).click();
+        //managar.driver.findElement(By.name("submit")).click();
+        managar.driver.findElement(By.xpath("(//input[@name=\'submit\'])[2]")).click();
     }
 }
