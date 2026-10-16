@@ -3,62 +3,75 @@ package manager;
 import model.ContactData;
 import org.openqa.selenium.By;
 
-public class ContactHelper {
-    private final ApplicationManagar managar;
 
-    public ContactHelper(ApplicationManagar managar) {
-        this.managar = managar;
-    }
+public class ContactHelper extends HelperBase {
 
-    public void openPageContact() {
-        if (!managar.isElementPresentContact(By.name("add new"))) {
-            managar.driver.findElement(By.linkText("add new")).click();
-        }
-
+    public ContactHelper (ApplicationManagar manager){
+        super(manager);
     }
 
     public void createContact(ContactData contact) {
-        openPageContact();
-        managar.driver.findElement(By.name("firstname")).click();
-        managar.driver.findElement(By.name("firstname")).sendKeys(contact.firstname());
-        managar.driver.findElement(By.name("middlename")).click();
-        managar.driver.findElement(By.name("middlename")).sendKeys(contact.middlename());
-        managar.driver.findElement(By.name("lastname")).click();
-        managar.driver.findElement(By.name("lastname")).sendKeys(contact.lastname());
-        managar.driver.findElement(By.name("nickname")).click();
-        managar.driver.findElement(By.name("nickname")).sendKeys(contact.nickname());
-        managar.driver.findElement(By.name("title")).click();
-        managar.driver.findElement(By.name("title")).sendKeys(contact.title());
-        managar.driver.findElement(By.name("company")).click();
-        managar.driver.findElement(By.name("company")).sendKeys(contact.company());
-        managar.driver.findElement(By.name("address")).click();
-        managar.driver.findElement(By.name("address")).sendKeys(contact.address());
-        managar.driver.findElement(By.name("home")).click();
-        managar.driver.findElement(By.name("home")).sendKeys(contact.home());
-        managar.driver.findElement(By.name("mobile")).click();
-        managar.driver.findElement(By.name("mobile")).sendKeys(contact.mobile());
-        managar.driver.findElement(By.name("work")).click();
-        managar.driver.findElement(By.name("work")).sendKeys(contact.work());
-        managar.driver.findElement(By.name("email")).click();
-        managar.driver.findElement(By.name("email")).sendKeys(contact.email());
-        managar.driver.findElement(By.name("theform")).click();
-        managar.driver.findElement(By.name("email2")).click();
-        managar.driver.findElement(By.name("email2")).sendKeys(contact.email2());
-        managar.driver.findElement(By.linkText("home")).click();
-        //managar.driver.findElement(By.name("submit")).click();
-        managar.driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+        initContactCreation(); //нажать add
+        fillContactForm(contact); //заполнить форму
+        submitContactCreation();
+        returnToHomePage();
     }
 
     public void removeContact() {
-        openPageContact();
-        //managar.driver.findElement(By.cssSelector("input:nth-child(7)")).click();
-        managar.driver.findElement(By.xpath("//table[@id=\'maintable\']/tbody/tr[5]/td/input")).click();
-        managar.driver.findElement(By.name("delete")).click();
-        managar.driver.findElement(By.linkText("home page")).click();
+        selectContact(); //проставив чек-бокс
+        deleteContact();//нажать кнопку удалить
+        returnToHomePage();
+    }
+
+    public void openPageContact() {
+        if (!manager.isElementPresent(By.name("Number of results"))) {
+            click(By.linkText("add new"));
+        }
+    }
+
+    public void initContactCreation() {
+        click(By.xpath("//a[contains(text(),\'add new\')]"));
+
+        }
+
+     public void  submitContactCreation(){
+         click (By.name("submit"));
+
+        }
+
+     public void  returnToHomePage(){
+            click(By.linkText("home page"));
+            //driver.switchTo().alert().accept();
+    }
+
+     private void fillContactForm(ContactData contact) {
+        type (By.name("firstname"), contact.firstname());
+        type (By.name("middlename"), contact.middlename());
+        type (By.name("lastname"), contact.lastname());
+        type (By.name("nickname"), contact.nickname());
+        type (By.name("title"), contact.title());
+        type (By.name("company"), contact.company());
+        type (By.name("address"), contact.address());
+        type (By.name("home"), contact.home());
+        type (By.name("mobile"), contact.mobile());
+        type (By.name("work"), contact.work());
+        type (By.name("email"), contact.email());
+        type (By.name("email2"), contact.email2());
+
+     }
+
+
+
+    private void selectContact() {
+        click(By.xpath("//input[@type=\"checkbox\"]"));
+    }
+
+    private void deleteContact() {
+        click(By.name("delete"));
     }
 
     public boolean isContactPreset() {
         openPageContact();
-        return managar.isElementPresent(By.name("selected[]"));//под вопросом
+        return manager.isElementPresent(By.name("selected[]"));
     }
 }

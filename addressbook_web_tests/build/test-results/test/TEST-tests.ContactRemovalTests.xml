@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.ContactRemovalTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-10-15T05:39:03.573Z" hostname="DESKTOP-15GNIA9" time="5.562">
+<testsuite name="tests.ContactRemovalTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-16T17:37:59.647Z" hostname="DESKTOP-15GNIA9" time="2.355">
   <properties/>
-  <testcase name="canRemoveContact()" classname="tests.ContactRemovalTests" time="5.545">
-    <failure message="org.openqa.selenium.NoSuchElementException: Unable to locate element: //table[@id='maintable']/tbody/tr[5]/td/input&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [e5d48ad9-1e0f-46c9-a7e0-442eb24d277d, findElement {using=xpath, value=//table[@id='maintable']/tbody/tr[5]/td/input}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 8844, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: e5d48ad9-1e0f-46c9-a7e0-442eb24d277d" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Unable to locate element: //table[@id='maintable']/tbody/tr[5]/td/input
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [e5d48ad9-1e0f-46c9-a7e0-442eb24d277d, findElement {using=xpath, value=//table[@id='maintable']/tbody/tr[5]/td/input}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 157.0.1, moz:accessibilityChecks: false, moz:buildID: 20261005135250, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 8844, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: e5d48ad9-1e0f-46c9-a7e0-442eb24d277d
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:252)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:667)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:432)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:426)
-	at manager.ContactHelper.removeContact(ContactHelper.java:55)
-	at tests.ContactRemovalTests.canRemoveContact(ContactRemovalTests.java:14)
-</failure>
-  </testcase>
+  <testcase name="canRemoveContact()" classname="tests.ContactRemovalTests" time="2.353"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

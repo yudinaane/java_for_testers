@@ -1,6 +1,5 @@
 package manager;
 
-import model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -27,7 +26,7 @@ public class ApplicationManagar {
             //закрыть браузер после всех тестов-->@After удаляется
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
             driver.get("http://localhost/addressbook/");
-            driver.manage().window().setSize(new Dimension(1076, 640));
+            driver.manage().window().setSize(new Dimension(1500, 1240));
             session().login("admin", "secret");
         }
     }
@@ -62,13 +61,6 @@ public class ApplicationManagar {
             return false;
         }
     }
-    public boolean isElementPresentContact(By locator) {
-        try {
-            driver.findElement(locator);
-            return true;
-        } catch  (NoSuchElementException exeption) {
-            return false;
-        }
-    }
+
 
 }

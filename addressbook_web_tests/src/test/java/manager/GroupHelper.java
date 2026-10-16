@@ -48,7 +48,7 @@ public class GroupHelper extends HelperBase {
 
 
     private void submitGroupCreation() {
-        click(By.name("submit"));
+       click(By.name("submit"));
     }
 
 
