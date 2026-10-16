@@ -41,10 +41,10 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public boolean isGroupPresent() {
-        openGroupsPage();
-        return manager.isElementPresent(By.name("selected[]"));
-    }
+    //НЕ нужен после появления getCount public boolean isGroupPresent() {
+        //openGroupsPage();
+       // return manager.isElementPresent(By.name("selected[]"));
+    //}
 
 
     private void submitGroupCreation() {
@@ -88,4 +88,8 @@ public class GroupHelper extends HelperBase {
         click(By.name("selected[]"));
     }
 
+    public int getCount() {
+        openGroupsPage();
+        return manager.driver.findElements(By.name("selected[]")).size(); //возвращает кол-во чек-боксов
+    }
 }

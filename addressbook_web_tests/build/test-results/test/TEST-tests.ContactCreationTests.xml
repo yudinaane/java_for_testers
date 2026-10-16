@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.ContactCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-16T17:37:48.388Z" hostname="DESKTOP-15GNIA9" time="11.256">
-  <properties/>
-  <testcase name="canCreateWithEmptyName()" classname="tests.ContactCreationTests" time="7.712"/>
-  <testcase name="canCreateContactWithFieldToHome()" classname="tests.ContactCreationTests" time="1.775"/>
-  <testcase name="canCreateContact()" classname="tests.ContactCreationTests" time="1.751"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
