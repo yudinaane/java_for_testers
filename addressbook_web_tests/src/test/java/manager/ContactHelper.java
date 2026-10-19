@@ -74,4 +74,24 @@ public class ContactHelper extends HelperBase {
         openPageContact();
         return manager.isElementPresent(By.name("selected[]"));
     }
-}
+
+    public int getCountContact() {
+        return manager.driver.findElements(By.name("selected[]")).size(); //возвращает кол-во чек-боксов
+    }
+
+    public void removeAllContacts() {
+        selectedAllContacts();
+        removeSelectedContacts();
+    }
+
+    private void removeSelectedContacts() { click(By.name("delete"));
+    }
+
+    private void selectedAllContacts() {
+        var checkboxes = manager.driver.findElements(By.name("selected[]"));
+        for (var checkbox : checkboxes) {
+            checkbox.click();
+        }
+    }
+    }
+
