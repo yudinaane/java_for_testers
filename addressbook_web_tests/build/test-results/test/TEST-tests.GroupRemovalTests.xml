@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.GroupRemovalTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-10-20T05:28:07.816Z" hostname="DESKTOP-15GNIA9" time="11.837">
+  <properties/>
+  <testcase name="canRemoveGroup()" classname="tests.GroupRemovalTests" time="11.785">
+    <failure message="org.openqa.selenium.InvalidSelectorException: Given css selector expression &quot;input value='108'&quot; is invalid: InvalidSelectorError: Document.querySelector: 'input value='108'' is not a valid selector: &quot;input value='108'&quot;&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [d66381cd-6112-4931-8695-ec9a6975228d, findElement {value=input value='108', using=css selector}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0, moz:accessibilityChecks: false, moz:buildID: 20261007201254, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 21764, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: d66381cd-6112-4931-8695-ec9a6975228d" type="org.openqa.selenium.InvalidSelectorException">org.openqa.selenium.InvalidSelectorException: Given css selector expression &quot;input value='108'&quot; is invalid: InvalidSelectorError: Document.querySelector: 'input value='108'' is not a valid selector: &quot;input value='108'&quot;
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [d66381cd-6112-4931-8695-ec9a6975228d, findElement {value=input value='108', using=css selector}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0, moz:accessibilityChecks: false, moz:buildID: 20261007201254, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 21764, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: d66381cd-6112-4931-8695-ec9a6975228d
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:252)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:667)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:432)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:426)
+	at manager.HelperBase.click(HelperBase.java:14)
+	at manager.GroupHelper.selectGroup(GroupHelper.java:91)
+	at manager.GroupHelper.removeGroup(GroupHelper.java:25)
+	at tests.GroupRemovalTests.canRemoveGroup(GroupRemovalTests.java:23)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
