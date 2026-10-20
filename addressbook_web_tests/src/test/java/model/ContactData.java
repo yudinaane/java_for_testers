@@ -50,5 +50,10 @@ public record ContactData(String firstname,
         return new ContactData(firstname, this.middlename, lastname, this.nickname, this.title,
                 this.company, address, home, this.mobile, this.work, email, this.email2);
     }
+
+    public ContactData withRandom(String lastname, String home, String mobile, String email) {
+        return new ContactData(firstname, this.middlename, lastname, this.nickname, this.title,
+                this.company, address, home, mobile, this.work, email, this.email2);
+    }
 }
 
