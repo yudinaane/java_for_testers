@@ -5,6 +5,9 @@ import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+import java.util.Random;
+
 public class ContactRemovalTests extends TestBase{
 
     @Test
@@ -13,7 +16,12 @@ public class ContactRemovalTests extends TestBase{
            app.contacts().createContact(new ContactData().withFieldToHome("some firstname", "some lastname",
                     "some address", "some home", "some email"));
         }
-        app.contacts().removeContact();
+        List<ContactData> oldContacts = app.contacts().getListContact();
+        var rnd = new Random();
+        var index = rnd.nextInt(oldContacts.size());
+        app.contacts().removeContact(oldContacts.get(index));
+        List<ContactData> newContacts = app.contacts().getListContact();
+        Assertions.assertEquals(newContacts.size(),oldContacts.size()-1);
     }
 
     @Test

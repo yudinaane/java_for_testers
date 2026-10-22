@@ -21,7 +21,7 @@ public class GroupRemovalTests extends TestBase {
         var rnd = new Random();
         var index = rnd.nextInt(oldGroups.size());      //случайным образом выбираем какой-то элемент из oldGroups
         app.groups().removeGroup(oldGroups.get(index)); //удаляется именно эта группа
-        List<GroupData> newGroups = app.groups().getList();
+        var newGroups = app.groups().getList();
         var expectedList = new ArrayList<>(oldGroups);
         expectedList.remove(index);
         //int newGroupCount=app.groups().getCount();

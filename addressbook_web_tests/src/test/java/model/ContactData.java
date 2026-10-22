@@ -36,8 +36,7 @@ public record ContactData(String firstname,
     }
 
     public ContactData withEmail(String email) {
-        return new ContactData(this.firstname, this.middlename, this.lastname, this.nickname, this.title,
-                this.company, this.address, this.home, this.mobile, this.work, email, this.email2);
+        return null;
     }
 
     public ContactData withMobile(String mobile) {
@@ -54,6 +53,9 @@ public record ContactData(String firstname,
     public ContactData withRandom(String lastname, String home, String mobile, String email) {
         return new ContactData(firstname, this.middlename, lastname, this.nickname, this.title,
                 this.company, address, home, mobile, this.work, email, this.email2);
+    }
+
+    public Object withAdd(String s) {
     }
 }
 

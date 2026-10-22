@@ -19,16 +19,19 @@ public class ContactCreationTests extends TestBase {
          for (var lastName : List.of("","last name")){
             for (var mobilephone : List.of("", "mobilephone")) {
                 for (var email1 : List.of("", "email1@mail.ru")) {
-                    result.add(new ContactData(firstName, "", lastName, "", "", "", "", "",
-                            mobilephone, "", email1, ""));
+                    result.add(new ContactData().withFirstname(firstName).withLastname(lastName)
+                            .withMobile(mobilephone).withEmail(email1));
                 }
             }
          }
     }
 
     for (int i = 0; i < 5; i++){
-      result.add(new ContactData (randomString(i*10), "", randomString(i*10),"", "", "","","",
-              randomString(i*10), "", randomString(i*10), ""));
+      result.add(new ContactData()
+              .withFirstname(randomString(i*10))
+              .withLastname(randomString(i*10))
+              .withMobile(randomString(i*10))
+              .withEmail(randomString(i*10)));
     }
     return result;
 

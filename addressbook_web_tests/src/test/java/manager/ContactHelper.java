@@ -1,7 +1,11 @@
 package manager;
 
 import model.ContactData;
+import model.GroupData;
 import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ContactHelper extends HelperBase {
@@ -93,5 +97,19 @@ public class ContactHelper extends HelperBase {
             checkbox.click();
         }
     }
+
+    public List<ContactData> getListContact() {
+        //надо прочитать данные и построить список
+        var contacts = new ArrayList<ContactData>(); //пустой список с контактами
+        //хотим получить со страницы список элементов с информацией о контактах:
+        var tds = manager.driver.findElements(By.cssSelector("td.center"));        //список элементов группы
+        for (var td : tds) {
+            var name = td.getText();
+            var checkbox = td.findElement(By.name ("selected[]"));
+            var id = checkbox.getAttribute("value");
+            contacts.add(new ContactData().withFirstname(firstname).withLastname(lastname));
+        }
+        return contacts;
     }
+}
 

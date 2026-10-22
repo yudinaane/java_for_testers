@@ -27,9 +27,9 @@ public class GroupHelper extends HelperBase {
         returnToGroupsPage();
     }
 
-    public void modifyGroup(GroupData modifiedGroup) {
+    public void modifyGroup(GroupData group, GroupData modifiedGroup) {
         openGroupsPage();
-        selectGroup(null);
+        selectGroup(group);
         initGroupModification();
         //заполнить форму
         fillGroupForm(modifiedGroup);
@@ -111,6 +111,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public List<GroupData> getList() {
+        openGroupsPage();
         var groups = new ArrayList<GroupData>(); //пустой список, в который будем складывать группы
         var spans = manager.driver.findElements(By.cssSelector("span.group"));        //список элементов группы
         for (var span : spans) {
