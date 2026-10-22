@@ -21,8 +21,8 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void removeContact() {
-        selectContact(); //проставив чек-бокс
+    public void removeContact(ContactData contact) {
+        selectContact(contact); //проставив чек-бокс
         deleteContact();//нажать кнопку удалить
         returnToHomePage();
     }
@@ -66,8 +66,9 @@ public class ContactHelper extends HelperBase {
 
 
 
-    private void selectContact() {
-        click(By.xpath("//input[@type=\"checkbox\"]"));
+    private void selectContact(ContactData contact) {
+       // click(By.cssSelector(String.format("input[value='%s']", contact.id())));
+       click(By.xpath("//input[@type=\"checkbox\"]"));
     }
 
     private void deleteContact() {
@@ -99,15 +100,17 @@ public class ContactHelper extends HelperBase {
     }
 
     public List<ContactData> getListContact() {
+
         //надо прочитать данные и построить список
-        var contacts = new ArrayList<ContactData>(); //пустой список с контактами
+        var contacts = new ArrayList<ContactData>(); //пустой список с контактами в который будем складывать группы
         //хотим получить со страницы список элементов с информацией о контактах:
         var tds = manager.driver.findElements(By.cssSelector("td.center"));        //список элементов группы
         for (var td : tds) {
-            var name = td.getText();
-            var checkbox = td.findElement(By.name ("selected[]"));
-            var id = checkbox.getAttribute("value");
-            contacts.add(new ContactData().withFirstname(firstname).withLastname(lastname));
+            var firstName = td.getText();
+            var lastName = td.getText();
+            var checkbox = td.findElement(By.name("selected[]"));
+            var id = checkbox.getAttribute("//input[@type=\"checkbox\"]");
+            contacts.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName));
         }
         return contacts;
     }

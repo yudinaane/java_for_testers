@@ -88,7 +88,8 @@ public class GroupHelper extends HelperBase {
     }
 
     private void selectGroup(GroupData group) {
-        click(By.cssSelector(String.format("input value='%s'", group.id())));
+
+        click(By.cssSelector(String.format("input[value='%s']", group.id())));
     }
 
     public int getCount() {
