@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="tests.ContactRemovalTests" tests="2" skipped="0" failures="1" errors="0" timestamp="2026-10-22T18:32:11.042Z" hostname="DESKTOP-15GNIA9" time="9.749">
+<testsuite name="tests.ContactRemovalTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-10-23T04:55:59.144Z" hostname="DESKTOP-15GNIA9" time="9.226">
   <properties/>
-  <testcase name="canRemoveContact()" classname="tests.ContactRemovalTests" time="8.288">
-    <failure message="org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='selected[]']&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [10c47ca3-2e1b-435e-8c2b-43df5c5cdad4, findChildElement {using=name, id=efb7dcdc-4b98-427c-a8c8-c9a5bbf448ce, value=selected[]}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0.1, moz:accessibilityChecks: false, moz:buildID: 20261019185856, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 20004, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: 10c47ca3-2e1b-435e-8c2b-43df5c5cdad4" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='selected[]']
+  <testcase name="canRemoveContact()" classname="tests.ContactRemovalTests" time="9.204">
+    <failure message="org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='selected[]']&#10;For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception&#10;Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'&#10;System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'&#10;Driver info: org.openqa.selenium.firefox.FirefoxDriver&#10;Command: [14ec7f38-c387-4c66-af31-ec1209ea75ed, findChildElement {value=selected[], id=dbabde96-6f94-4191-a7ef-7319cbc8d946, using=name}]&#10;Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0.1, moz:accessibilityChecks: false, moz:buildID: 20261019185856, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 26832, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}&#10;Session ID: 14ec7f38-c387-4c66-af31-ec1209ea75ed" type="org.openqa.selenium.NoSuchElementException">org.openqa.selenium.NoSuchElementException: Unable to locate element: *[name='selected[]']
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
 Build info: version: '4.50.0', revision: 'be845fb be845fb44341cd7a6e7b27ba02dc1bdcf69dc51c'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.20.1'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [10c47ca3-2e1b-435e-8c2b-43df5c5cdad4, findChildElement {using=name, id=efb7dcdc-4b98-427c-a8c8-c9a5bbf448ce, value=selected[]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0.1, moz:accessibilityChecks: false, moz:buildID: 20261019185856, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 20004, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
-Session ID: 10c47ca3-2e1b-435e-8c2b-43df5c5cdad4
+Command: [14ec7f38-c387-4c66-af31-ec1209ea75ed, findChildElement {value=selected[], id=dbabde96-6f94-4191-a7ef-7319cbc8d946, using=name}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 158.0.1, moz:accessibilityChecks: false, moz:buildID: 20261019185856, moz:geckodriverVersion: 0.37.1, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 26832, moz:profile: C:\Users\73B5~1\AppData\Loc..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 14ec7f38-c387-4c66-af31-ec1209ea75ed
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -21,11 +21,10 @@ Session ID: 10c47ca3-2e1b-435e-8c2b-43df5c5cdad4
 	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:60)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:432)
 	at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:211)
-	at manager.ContactHelper.getListContact(ContactHelper.java:109)
+	at manager.ContactHelper.getListContact(ContactHelper.java:110)
 	at tests.ContactRemovalTests.canRemoveContact(ContactRemovalTests.java:20)
 </failure>
   </testcase>
-  <testcase name="canRemoveAllContactsAtOnce()" classname="tests.ContactRemovalTests" time="1.438"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

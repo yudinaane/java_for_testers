@@ -65,8 +65,9 @@ public class ContactHelper extends HelperBase {
 
 
     private void selectContact(ContactData contact) {
-       click(By.cssSelector(String.format("input[value='%s']", contact.id())));
+       //click(By.cssSelector(String.format("input[value='%s']", contact.id())));
        //click(By.xpath("//input[@type=\"checkbox\"]"));
+        click(By.xpath(String.format("//input[@type=\"checkbox\"]", contact.id())));
     }
 
     private void deleteContact() {
@@ -102,13 +103,13 @@ public class ContactHelper extends HelperBase {
         //надо прочитать данные и построить список
         var contacts = new ArrayList<ContactData>(); //пустой список с контактами в который будем складывать группы
         //хотим получить со страницы список элементов с информацией о контактах:
-        var tds = manager.driver.findElements(By.cssSelector(".center"));        //список элементов группы
+        var tds = manager.driver.findElements(By.cssSelector("td.center") );
         for (var td : tds) {
-            var firstName = td.getText();
+            //var firstName = td.getText();
             var lastName = td.getText();
             var checkbox = td.findElement(By.name("selected[]"));
             var id = checkbox.getAttribute("//input[@type=\"checkbox\"]");
-            contacts.add(new ContactData().withId(id).withLastname(lastName).withFirstname(firstName));
+            contacts.add(new ContactData().withId(id).withLastname(lastName));
         }
         return contacts;
     }

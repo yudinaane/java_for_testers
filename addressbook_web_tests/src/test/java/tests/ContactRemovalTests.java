@@ -14,12 +14,12 @@ public class ContactRemovalTests extends TestBase{
     @Test
     void canRemoveContact(){
         if (!app.contacts().isContactPreset()) {
-           app.contacts().createContact(new ContactData().withFieldToHome("some firstname", "some lastname",
-                   "some address", "some home", "some email"));
+           app.contacts().createContact(new ContactData().withId("").withFirstname(randomString(10))
+                   .withLastname(randomString(10)));
         }
         var oldContacts = app.contacts().getListContact();
         var rnd = new Random();
-       var index = rnd.nextInt(oldContacts.size());
+        var index = rnd.nextInt(oldContacts.size());
         app.contacts().removeContact(oldContacts.get(index));
         var newContacts = app.contacts().getListContact();
         var expectedListContact = new ArrayList<>(oldContacts);
