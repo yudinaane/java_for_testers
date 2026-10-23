@@ -1,7 +1,6 @@
 package manager;
 
 import model.ContactData;
-import model.GroupData;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -35,8 +34,7 @@ public class ContactHelper extends HelperBase {
 
     public void initContactCreation() {
         click(By.xpath("//a[contains(text(),\'add new\')]"));
-
-        }
+       }
 
      public void  submitContactCreation(){
          click (By.name("submit"));
@@ -67,8 +65,8 @@ public class ContactHelper extends HelperBase {
 
 
     private void selectContact(ContactData contact) {
-       // click(By.cssSelector(String.format("input[value='%s']", contact.id())));
-       click(By.xpath("//input[@type=\"checkbox\"]"));
+       click(By.cssSelector(String.format("input[value='%s']", contact.id())));
+       //click(By.xpath("//input[@type=\"checkbox\"]"));
     }
 
     private void deleteContact() {
@@ -104,7 +102,7 @@ public class ContactHelper extends HelperBase {
         //надо прочитать данные и построить список
         var contacts = new ArrayList<ContactData>(); //пустой список с контактами в который будем складывать группы
         //хотим получить со страницы список элементов с информацией о контактах:
-        var tds = manager.driver.findElements(By.cssSelector("td.center"));        //список элементов группы
+        var tds = manager.driver.findElements(By.cssSelector(".center"));        //список элементов группы
         for (var td : tds) {
             var firstName = td.getText();
             var lastName = td.getText();
