@@ -9,7 +9,7 @@ public class ContactRemovalTests extends TestBase{
     void canRemoveContact(){
         if (!app.contacts().isContactPreset()) {
            app.contacts().createContact(new ContactData().withFieldToHome("some firstname", "some lastname",
-                    "some address", "some home", "some email"));
+                    "some address"));
         }
         app.contacts().removeContact();
     }

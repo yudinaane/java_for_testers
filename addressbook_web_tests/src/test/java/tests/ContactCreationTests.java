@@ -6,29 +6,18 @@ import org.junit.jupiter.api.Test;
 
 public class ContactCreationTests extends TestBase {
 
-
-
   @Test
   public void canCreateContact() {
-    app.contacts().createContact( new ContactData("first name", "middle name",
-            "last name", "nick name", "Title", "Company",
-            "Address", "homephone", "mobilephone", "workphone", "email1@mail.ru", "email2@mail.ru"));
-    }
-
-  @Test
-  public void canCreateWithEmptyName() {
-    app.contacts().createContact( new ContactData());
+    var contact = new ContactData()
+            .withFirstname(randomString(10))
+            .withLastname(randomString(10))
+            .withPhoto(randomFile("src/test/resources/images"));
+        app.contacts().createContact(contact);
   }
 
-  @Test
-  public void canCreateContactWithFieldToHome() {
-    app.contacts().createContact (new ContactData().withFieldToHome("some firstname", "some lastname",
-            "some address", "some home", "some email"));
 
 
 
-
-  }
 
 
 

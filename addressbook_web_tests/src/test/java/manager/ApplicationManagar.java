@@ -16,9 +16,9 @@ public class ApplicationManagar {
     public void init(String browser) {
         //код для инициализации (Лек 2.6 8:50)
         if (driver == null) {
-            if ("firefox".equals(browser)){
+            if ("chrome".equals(browser)){
                 driver = new FirefoxDriver();
-            } else if ("chrome".equals(browser)) {
+            } else if ("firefox".equals(browser)) {
                 driver = new ChromeDriver();
             } else {
                 throw  new IllegalArgumentException(String.format("Unkown browser %s", browser));
