@@ -1,12 +1,11 @@
 package tests;
 
 import model.ContactData;
-import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.stqa.addressbook.common.CommonFunctions;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class ContactRemovalTests extends TestBase{
@@ -14,8 +13,8 @@ public class ContactRemovalTests extends TestBase{
     @Test
     void canRemoveContact(){
         if (!app.contacts().isContactPreset()) {
-           app.contacts().createContact(new ContactData().withId("").withFirstname(randomString(10))
-                   .withLastname(randomString(10)));
+           app.contacts().createContact(new ContactData().withId("").withFirstname(CommonFunctions.randomString(10))
+                   .withLastname(CommonFunctions.randomString(10)));
         }
         var oldContacts = app.contacts().getListContact();
         var rnd = new Random();

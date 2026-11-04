@@ -2,7 +2,7 @@
   <library name="Gradle: org.seleniumhq.selenium:selenium-api:4.50.0" type="java-imported" external-system-id="GRADLE">
     <properties groupId="org.seleniumhq.selenium" artifactId="selenium-api" version="4.50.0" baseVersion="4.50.0" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle_home/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.50.0/23fa19de830d0d338a3813f54767f5b64e864f3c/selenium-api-4.50.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-api/4.50.0/23fa19de830d0d338a3813f54767f5b64e864f3c/selenium-api-4.50.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

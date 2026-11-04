@@ -1,11 +1,11 @@
 package tests;
 
 import model.ContactData;
-import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.stqa.addressbook.common.CommonFunctions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +28,9 @@ public class ContactCreationTests extends TestBase {
 
     for (int i = 0; i < 15; i++){
       result.add(new ContactData()
-              .withFirstname(randomString(i*10))
-              .withLastname(randomString(i*10))
-              .withMobile(randomString(i*10)));
+              .withFirstname(CommonFunctions.randomString(i*10))
+              .withLastname(CommonFunctions.randomString(i*10))
+              .withMobile(CommonFunctions.randomString(i*10)));
     }
     return result;
 

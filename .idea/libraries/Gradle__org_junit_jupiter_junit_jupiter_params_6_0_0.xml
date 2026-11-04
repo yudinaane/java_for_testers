@@ -2,7 +2,7 @@
   <library name="Gradle: org.junit.jupiter:junit-jupiter-params:6.0.0" type="java-imported" external-system-id="GRADLE">
     <properties groupId="org.junit.jupiter" artifactId="junit-jupiter-params" version="6.0.0" baseVersion="6.0.0" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle_home/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/6.0.0/703a536ae0e72bf432c35ce3eed770a38fdcedde/junit-jupiter-params-6.0.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-params/6.0.0/703a536ae0e72bf432c35ce3eed770a38fdcedde/junit-jupiter-params-6.0.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

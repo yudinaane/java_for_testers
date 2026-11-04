@@ -2,7 +2,7 @@
   <library name="Gradle: org.seleniumhq.selenium:selenium-safari-driver:4.50.0" type="java-imported" external-system-id="GRADLE">
     <properties groupId="org.seleniumhq.selenium" artifactId="selenium-safari-driver" version="4.50.0" baseVersion="4.50.0" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle_home/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-safari-driver/4.50.0/950bab9430a767a5e8c6cab345477384edea5e08/selenium-safari-driver-4.50.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-safari-driver/4.50.0/950bab9430a767a5e8c6cab345477384edea5e08/selenium-safari-driver-4.50.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

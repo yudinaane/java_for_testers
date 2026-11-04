@@ -2,7 +2,7 @@
   <library name="Gradle: org.seleniumhq.selenium:selenium-json:4.50.0" type="java-imported" external-system-id="GRADLE">
     <properties groupId="org.seleniumhq.selenium" artifactId="selenium-json" version="4.50.0" baseVersion="4.50.0" />
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../gradle_home/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-json/4.50.0/8f41a322309804305430b3fca6fd6c31d95c6809/selenium-json-4.50.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.seleniumhq.selenium/selenium-json/4.50.0/8f41a322309804305430b3fca6fd6c31d95c6809/selenium-json-4.50.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
