@@ -2,6 +2,7 @@ package ru.stqa.addressbook.generator;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import model.ContactData;
 import model.GroupData;
 import ru.stqa.addressbook.common.CommonFunctions;
 import tools.jackson.databind.ObjectMapper;
@@ -64,9 +65,16 @@ public class Generator{
         }
         return result;
     }
-
+ //добавить для контактов
     private Object generateContacts(){
-        return null;
+        var result = new ArrayList<ContactData>();
+        for (int i = 0; i < count; i++){
+            result.add(new ContactData()
+                    .withFirstname(CommonFunctions.randomString(i*10))
+                    .withLastname(CommonFunctions.randomString(i*10))
+                    .withMobile(CommonFunctions.randomString(i*10)));
+        }
+        return result;
     }
 
 
