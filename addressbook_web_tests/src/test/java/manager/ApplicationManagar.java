@@ -7,13 +7,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Properties;
+
 public class ApplicationManagar {
     public static WebDriver driver;
     private LoginHelper session;
     private GroupHelper groups;
     private ContactHelper contacts;
+    private Properties properties;
 
-    public void init(String browser) {
+    public void init(String browser, Properties properties){
+        this.properties = properties;
         //код для инициализации (Лек 2.6 8:50)
         if (driver == null) {
             if ("firefox".equals(browser)){
@@ -25,9 +29,9 @@ public class ApplicationManagar {
             }
             //закрыть браузер после всех тестов-->@After удаляется
             Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
-            driver.get("http://localhost/addressbook/");
+            driver.get(properties.getProperty("web.baseUrl"));
             driver.manage().window().setSize(new Dimension(1500, 1240));
-            session().login("admin", "secret");
+            session().login(properties.getProperty("web.username"),properties.getProperty("web.password") );
         }
     }
 
