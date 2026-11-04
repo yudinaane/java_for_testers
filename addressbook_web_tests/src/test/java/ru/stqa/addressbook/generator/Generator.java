@@ -9,6 +9,7 @@ import tools.jackson.databind.SerializationFeature;
 import tools.jackson.databind.json.JsonMapper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -78,7 +79,10 @@ public class Generator{
                     .enable(SerializationFeature.INDENT_OUTPUT).build();
             mapper.writeValue(new File(output), data);
             //.enable(SerializationFeature.INDENT_OUTPUT);
-            mapper.writeValue(new File(output), data);
+            var json = mapper.writeValueAsString(data);
+            try (var writer = new FileWriter(output)){
+                writer.write(json);
+            }
         } else {
             throw new IllegalArgumentException("Неизвестный формат данных" + format);
         }
