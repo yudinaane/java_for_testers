@@ -39,7 +39,7 @@ public class GroupCreationTests extends TestBase {
         //}
         var json = "";
         try (var reader = new FileReader("groups.json");
-             var breader = new BufferedReader(reader);
+             var breader = new BufferedReader(reader)
         ){
             var line = breader.readLine();
             while (line != null){
@@ -54,27 +54,34 @@ public class GroupCreationTests extends TestBase {
         return result;
             }
 
+    public static List<GroupData> singleRandomGroup() {
+        return List.of(new GroupData()
+                .withName(CommonFunctions.randomString(10))
+                .withHeader(CommonFunctions.randomString(10))
+                .withFooter(CommonFunctions.randomString(10)));
+
+    }
 
     @ParameterizedTest
-    @MethodSource ("groupProvider")
-    public void сanCreateMultipleGroups(GroupData group) {
-       var oldGroups = app.groups().getList();
-       int groupCount = app.groups().getCount();
-       app.groups().createGroup(group);
-       int newGroupCount=app.groups().getCount();
-       Assertions.assertEquals(groupCount + 1, newGroupCount);
-       var newGroups = app.groups().getList();
+    @MethodSource ("singleRandomGroup")
+    public void canCreateGroup(GroupData group) {
+        var oldGroups = app.jdbs().getGroupList();
+        app.groups().createGroup(group);
+        var newGroups = app.jdbs().getGroupList();
        Comparator<GroupData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt((o1.id())), Integer.parseInt((o2.id()))); //сравнение двух чисел - идентификаоров групп, которые конвертированы в числа
 
         };
         //сортировка двух списков
         newGroups.sort(compareById);
+        var maxId = newGroups.get(newGroups.size() - 1).id();
 
-       var expectedList = new ArrayList<>(oldGroups);
-       expectedList.add(group.withId(newGroups.get(newGroups.size() - 1).id()).withHeader("").withFooter(""));
-       expectedList.sort(compareById);
-       Assertions.assertEquals(newGroups, expectedList);
+        var expectedList = new ArrayList<>(oldGroups);
+        expectedList.add(group.withId(maxId));
+        expectedList.sort(compareById);
+        Assertions.assertEquals(newGroups, expectedList);
+
+        var newUiGroups = app.groups().getList();
     }
 
     public static List<GroupData> negativeGroupProvider() {
@@ -82,9 +89,12 @@ public class GroupCreationTests extends TestBase {
                 new GroupData("", "group name'", "", "")));
         return result;
     }
+
+
+
     @ParameterizedTest
     @MethodSource ("negativeGroupProvider")
-    public void сanNotCreateGroup(GroupData group) {
+    public void canNotCreateGroup(GroupData group) {
         int groupCount = app.groups().getCount();
         app.groups().createGroup(group);
         int newGroupCount=app.groups().getCount();

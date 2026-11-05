@@ -15,6 +15,7 @@ public class ApplicationManagar {
     private GroupHelper groups;
     private ContactHelper contacts;
     private Properties properties;
+    private JdbsHelper jdbs;
 
     public void init(String browser, Properties properties){
         this.properties = properties;
@@ -54,6 +55,13 @@ public class ApplicationManagar {
             session = new LoginHelper(this);
         }
         return session;
+    }
+
+    public JdbsHelper jdbs(){
+        if (jdbs == null) {
+            jdbs = new JdbsHelper(this);
+        }
+        return jdbs;
     }
 
 

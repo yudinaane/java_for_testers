@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="tests.GroupCreationTests" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-11-05T05:24:02.004Z" hostname="DESKTOP-QQ2OA69" time="4.234">
+  <properties/>
+  <testcase name="[1] GroupData[id=, name=dyutldioyz, header=fdkbeyjpnw, footer=ljwqvlucls]" classname="tests.GroupCreationTests" time="4.136">
+    <failure message="java.lang.RuntimeException: java.sql.SQLException: No suitable driver found for jdbs:mysql://localhost/addressbook" type="java.lang.RuntimeException">java.lang.RuntimeException: java.sql.SQLException: No suitable driver found for jdbs:mysql://localhost/addressbook
+	at manager.JdbsHelper.getGroupList(JdbsHelper.java:31)
+	at tests.GroupCreationTests.canCreateGroup(GroupCreationTests.java:68)
+Caused by: java.sql.SQLException: No suitable driver found for jdbs:mysql://localhost/addressbook
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:706)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at manager.JdbsHelper.getGroupList(JdbsHelper.java:18)
+	... 1 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
