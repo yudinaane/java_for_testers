@@ -15,5 +15,6 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.20" level="project" />
     <orderEntry type="library" name="Gradle: tools.jackson.core:jackson-core:3.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:4.36.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.hibernate.orm:hibernate-core:7.4.15.Final" level="project" />
   </component>
 </module>

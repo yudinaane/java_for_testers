@@ -14,8 +14,10 @@ public class ApplicationManagar {
     private LoginHelper session;
     private GroupHelper groups;
     private ContactHelper contacts;
-    private Properties properties;
     private JdbsHelper jdbs;
+    private HibernateHelper hbm;
+    private Properties properties;
+
 
     public void init(String browser, Properties properties){
         this.properties = properties;
@@ -62,6 +64,13 @@ public class ApplicationManagar {
             jdbs = new JdbsHelper(this);
         }
         return jdbs;
+    }
+
+    public HibernateHelper hbm(){
+        if (hbm == null) {
+            hbm = new HibernateHelper(this);
+        }
+        return hbm;
     }
 
 

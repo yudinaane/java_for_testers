@@ -17,6 +17,7 @@ dependencies {
     implementation 'org.jcommander:jcommander:3.0'
     implementation 'tools.jackson.core:jackson-databind:3.0.0'
     implementation 'com.mysql:mysql-connector-j:26.10.0'
+    implementation 'org.hibernate.orm:hibernate-core:7.4.15.Final'
     }
 
 test {
