@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 public class ContactCreationTests extends TestBase {
 
   public static List<ContactData> contactProvider() throws IOException {
@@ -58,18 +60,34 @@ public class ContactCreationTests extends TestBase {
 
   @Test
   public void canCreateContactWithFieldToHome() {
-    app.contacts().createContact (new ContactData().withFieldToHome("some firstname", "some lastname",
-            "some address", "some home", "some email"));
-
-
-
-
+      app.contacts().createContact(new ContactData().withFieldToHome("some firstname", "some lastname",
+              "some address", "some home", "some email"));
   }
 
+  @Test
+  void canCreateContact() {
+      var contact = new ContactData()
+                  .withFirstname(CommonFunctions.randomString(10))
+                  .withLastname(CommonFunctions.randomString(20));
+                  //withPhoto(randomFile("src/test/resources/images"))
+      app.contacts().createContact(contact);
+      }
 
+    @Test
+    void canCreateContactInGroup() {
 
-
-
+        var contact = new ContactData()
+                .withFirstname(CommonFunctions.randomString(10))
+                .withLastname(CommonFunctions.randomString(20));
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
+        }
+        var group = app.hbm().getGroupList().get(0);
+        var oldRelated = app.hbm().getContactsInGroup(group);  //получить список контактов, входящих в группу
+        app.contacts().createContact(contact, group);
+        var newRelated = app.hbm().getContactsInGroup(group);
+        Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
+    }
 
 
 }
