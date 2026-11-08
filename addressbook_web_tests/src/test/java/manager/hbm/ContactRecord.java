@@ -1,19 +1,35 @@
 package manager.hbm;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import org.hibernate.mapping.List;
+import jakarta.persistence.*;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "addressbook")
 
 public class ContactRecord {
     @Id
+    @Column(name = "id")
     public int id;
+
+    @Column(name = "firstname")
     public String firstname;
+
+    @Column(name = "lastname")
     public String lastname;
+
+    @Column(name = "address")
     public String address;
+
+
+    @ManyToMany
+    @JoinTable(name = "address_in_groups",
+            joinColumns = @JoinColumn(name = "group_id"),
+            inverseJoinColumns = @JoinColumn(name="id"))
+    public List<GroupRecord> groups;
+
+
 
     public ContactRecord(){}
 

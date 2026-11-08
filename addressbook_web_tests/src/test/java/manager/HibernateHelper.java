@@ -95,16 +95,19 @@ public class HibernateHelper extends HelperBase {
     }
 
     //4 для 3 контакты
-    private static ContactData convertContact(ContactRecord record) {
-        return new ContactData("" + record.id, record.firstname,
-                record.lastname, record.address);
+    private static ContactData convert(ContactRecord record) {
+        return new ContactData()
+                .withId("" + record.id)
+                .withFirstname(record.firstname)
+                .withLastname(record.lastname)
+                .withAddress(record.address);
     }
 
     //3 для 2 контакты
     public List<ContactData> convertListContact(List<ContactRecord> records) {
         List<ContactData> result = new ArrayList<>();
         for (var record : records) {
-            result.add(convertContact(record));
+            result.add(convert(record));
         }
         return result;
 
@@ -116,5 +119,23 @@ public class HibernateHelper extends HelperBase {
         return session.createQuery("from ContactRecord", ContactRecord.class).list();
     }));
 }
+
+    public List<ContactData> getContactsInGroup(GroupData group) {
+        return sessionFactory.fromSession(session -> {
+            return convertListContact(session.get(GroupRecord.class, group.id()).contacts);
+        });
+    }
+
+    public List<ContactData> getContactsInGroupToHomePage(GroupData group) {
+        return sessionFactory.fromSession(session -> {
+            return convertListContact(session.get(GroupRecord.class, group.id()).contacts);
+        });
+    }
+
+    public List<GroupData> getGroupsToHomePage(ContactData contact) {
+        return sessionFactory.fromSession(session -> {
+            return convertList(session.get(ContactRecord.class, contact.id()).groups);
+        });
+    }
 }
 

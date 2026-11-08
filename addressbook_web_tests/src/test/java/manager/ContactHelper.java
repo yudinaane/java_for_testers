@@ -24,11 +24,11 @@ public class ContactHelper extends HelperBase {
     public void createContact(ContactData contact, GroupData group) {
         initContactCreation(); //нажать add
         fillContactForm(contact); //заполнить форму
-        selectGroup(group);       //выбрать группу из выпадающего списка
+        selectGroup(group);       //6.4 выбрать группу из выпадающего списка
         submitContactCreation();
         returnToHomePage();
     }
-
+   //6.4
     private void selectGroup(GroupData group) {
         new Select(manager.driver.findElement(By.name("new_group"))).selectByValue(group.id()); //находить на странице нужный элемент
     }
@@ -37,6 +37,18 @@ public class ContactHelper extends HelperBase {
         selectContact(contact); //проставив чек-бокс
         deleteContact();//нажать кнопку удалить
         returnToHomePage();
+    }
+
+
+    public void addContactInGroup(ContactData contact, GroupData group) {
+        selectContact(contact); //проставив чек-бокс
+        selectGroupInHomePage(group); //выбрать группу на главной
+        submitGroupCreation(); //нажать ADD TO
+        //returnToHomePage();
+    }
+ //6.5
+    private void selectGroupInHomePage(GroupData group) {
+        new Select(manager.driver.findElement(By.name("to_group"))).selectByValue(group.id()); //находить на странице нужный элемент
     }
 
     public void openPageContact() {
@@ -49,10 +61,16 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//a[contains(text(),\'add new\')]"));
        }
 
-     public void  submitContactCreation(){
-         click (By.name("submit"));
 
-        }
+       //&&&&
+    public void  submitContactCreation(){
+         click (By.name("submit"));
+    }
+
+    public void  submitGroupCreation(){
+        click (By.name("add"));
+    }
+
 
      public void  returnToHomePage(){
             click(By.linkText("home page"));

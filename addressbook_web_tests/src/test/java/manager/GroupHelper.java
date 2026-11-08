@@ -1,7 +1,9 @@
 package manager;
 
+import model.ContactData;
 import model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,4 +125,31 @@ public class GroupHelper extends HelperBase {
         }
         return groups;
     }
+
+
+
+    //удал1
+    public void removeContactFromGroup(GroupData group, ContactData contact) {
+        selectGroupRight(group);//выбрать группу
+        selectContact(contact); //проставив чек-бокс
+        removeContactFooter();//нажать кнопку Remove
+        //returnToHomePage();
+    }
+    //удал2 (барвть группу правый верх угол)
+    private void selectGroupRight(GroupData group) {
+        new Select(manager.driver.findElement(By.name("group"))).selectByValue(group.id()); //находить на странице нужный элемент
+    }
+
+    private void selectContact(ContactData contact) {
+        //click(By.cssSelector(String.format("input[value='%s']", contact.id())));
+        //click(By.xpath("//input[@type=\"checkbox\"]"));
+        click(By.xpath(String.format("//input[@type=\"checkbox\"]", contact.id())));
+    }
+
+    //удал3
+    private void removeContactFooter() {
+        click(By.name("remove"));
+    }
+
+
 }

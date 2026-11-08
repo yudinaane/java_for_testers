@@ -1,12 +1,14 @@
 package tests;
 
 import model.ContactData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import ru.stqa.addressbook.common.CommonFunctions;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 
 public class ContactRemovalTests extends TestBase{
 
@@ -28,6 +30,33 @@ public class ContactRemovalTests extends TestBase{
         var expectedListContact = new ArrayList<>(oldContacts);
         expectedListContact.remove(index);
         Assertions.assertEquals(newContacts,expectedListContact);
+    }
+
+    @Test
+    void canRemoveContactInGroup(){
+        //if (!app.contacts().isContactPreset()) {
+        // app.contacts().createContact(new ContactData().withId("").withFirstname(CommonFunctions.randomString(10))
+        //.withLastname(CommonFunctions.randomString(10)));
+        // }
+        //hbm if (app.hbm().getContactCount() == 0) {
+        //hbm app.hbm().createContact(new ContactData().withId("").withFirstname(CommonFunctions.randomString(10))
+        //hbm .withLastname(CommonFunctions.randomString(10)));
+        //hbm }
+
+        var contact = new ContactData()
+                .withFirstname(CommonFunctions.randomString(10))
+                .withLastname(CommonFunctions.randomString(20))
+                .withAddress(CommonFunctions.randomString(20));
+
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
+        }
+
+        var group = app.hbm().getGroupList().get(0);
+        var oldRelated = app.hbm().getGroupsToHomePage(contact);  //получить список групп
+        app.groups().removeContactFromGroup(group, contact);
+        var newRelated = app.hbm().getGroupsToHomePage(contact);
+        Assertions.assertEquals(oldRelated.size()-1, newRelated.size());
     }
 
     @Test

@@ -97,21 +97,45 @@ public class ContactCreationTests extends TestBase {
       app.contacts().createContact(contact);
       }
 
-    //@Test
-    //void canCreateContactInGroup() {
+    @Test
+    void canCreateContactInGroup() {
 
-       // var contact = new ContactData()
-             //   .withFirstname(CommonFunctions.randomString(10))
-             //   .withLastname(CommonFunctions.randomString(20));
-        //if (app.hbm().getGroupCount() == 0) {
-           // app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
-       // }
-        //var group = app.hbm().getGroupList().get(0);
-        //var oldRelated = app.hbm().getContactsInGroup(group);  //получить список контактов, входящих в группу
-       // app.contacts().createContact(contact, group);
-        //var newRelated = app.hbm().getContactsInGroup(group);
-       // Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
-    //}
+       var contact = new ContactData()
+               .withFirstname(CommonFunctions.randomString(10))
+               .withLastname(CommonFunctions.randomString(20))
+               .withMobile(CommonFunctions.randomString(20));
+
+        if (app.hbm().getGroupCount() == 0) {
+           app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
+       }
+
+        var group = app.hbm().getGroupList().get(0);
+        var oldRelated = app.hbm().getContactsInGroup(group);  //получить список контактов, входящих в группу
+       app.contacts().createContact(contact, group);
+        var newRelated = app.hbm().getContactsInGroup(group);
+       Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
+    }
+
+    @Test
+    void canCreateContactInGroupToHomePage() {
+
+        var contact = new ContactData()
+                .withFirstname(CommonFunctions.randomString(10))
+                .withLastname(CommonFunctions.randomString(20))
+                .withMobile(CommonFunctions.randomString(20));
+
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
+        }
+
+        var group = app.hbm().getGroupList().get(0);
+        var oldRelated = app.hbm().getContactsInGroupToHomePage(group);  //получить список контактов, входящих в группу
+        app.contacts().addContactInGroup(contact, group);
+        var newRelated = app.hbm().getContactsInGroupToHomePage(group);
+        Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
+    }
+
+
 
 
 }
