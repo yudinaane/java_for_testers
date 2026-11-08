@@ -1,5 +1,6 @@
 package manager;
 
+import model.ContactData;
 import model.GroupData;
 
 import java.sql.DriverManager;
@@ -7,15 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbsHelper extends HelperBase {
-    public JdbsHelper (ApplicationManagar manager){
+public class JdbcHelper extends HelperBase {
+    public JdbcHelper(ApplicationManagar manager){
         super(manager);
     }
 
     public List<GroupData> getGroupList() {
        var groups = new ArrayList<GroupData>();
         //устанавливаем соединение с бд:
-        try (var conn = DriverManager.getConnection("jdbs:mysql://localhost/addressbook", "root", "");
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
              var statement = conn.createStatement();
              var result = statement.executeQuery("SELECT group_id, group_name, group_header, group_footer FROM group_list"))
         {
@@ -34,6 +35,30 @@ public class JdbsHelper extends HelperBase {
         return groups;
     }
 
+    public List<ContactData> getContactList() {
+        var contacts = new ArrayList<ContactData>();
+        //устанавливаем соединение с бд:
+        try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
+             var statement = conn.createStatement();
+             var result = statement.executeQuery("SELECT id, firstname, lastname, address FROM addressbook"))
+        {
+            while (result.next()){
+                contacts.add(new ContactData()
+                        .withId (result.getString("id"))
+                        .withFirstname (result.getString("firstname"))
+                        .withLastname (result.getString("lastname"))
+                        .withAddress (result.getString("address")));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return contacts;
+    }
+
+
+
     public void checkConsistency(){
              try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
              var statement = conn.createStatement();
@@ -48,4 +73,6 @@ public class JdbsHelper extends HelperBase {
             throw new RuntimeException(e);
         }
     }
+
+
 }

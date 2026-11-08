@@ -15,77 +15,55 @@ import java.util.List;
 
 public class HibernateHelper extends HelperBase {
     private SessionFactory sessionFactory;
-    public HibernateHelper (ApplicationManagar manager){
+
+    //1 фабрика
+    public HibernateHelper(ApplicationManagar manager) {
         super(manager);
         //создание фвбрик сессиий:
         sessionFactory = new Configuration()
-                        .addAnnotatedClass(ContactRecord.class)
-                        .addAnnotatedClass(GroupRecord.class)
-                        .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook?zeroDateTimeBehavior=ConvertToNull")
-                        .setProperty(AvailableSettings.USER,"root")
-                        .setProperty(AvailableSettings.PASS,"")
-                        .buildSessionFactory();
+                .addAnnotatedClass(ContactRecord.class)
+                .addAnnotatedClass(GroupRecord.class)
+                .setProperty(AvailableSettings.URL, "jdbc:mysql://localhost/addressbook?zeroDateTimeBehavior=ConvertToNull")
+                .setProperty(AvailableSettings.USER, "root")
+                .setProperty(AvailableSettings.PASS, "")
+                .buildSessionFactory();
     }
-
-
-    public List<GroupData> convertList(List<GroupRecord> records){
+ //3 для 2
+    public List<GroupData> convertList(List<GroupRecord> records) {
         List<GroupData> result = new ArrayList<>();
-        for (var record : records){
+        for (var record : records) {
             result.add(convert(record));
         }
         return result;
 
     }
 
-    public List<ContactData> convertContactList(List<ContactRecord> records){
-        List<ContactData> result = new ArrayList<>();
-        for (var record : records){
-            result.add(convert(record));
-        }
-        return result;
 
-    }
-    private static ContactData convert(ContactRecord record) {
-        return new ContactData().withId("" + record.id)
-                .withFirstname(record.firstname)
-                .withLastname(record.lastname)
-                .withAddress(record.address);
-    }
-
-    private static ContactRecord convert(ContactData data) {
-        var id = data.id();
-        if ("".equals(id)) {
-            id = "0";
-        }
-        return new ContactRecord(Integer.parseInt(id), data.firstname(), data.lastname(), data.address());
-    }
-
-
-
+//4 для 3
     private static GroupData convert(GroupRecord record) {
         return new GroupData("" + record.id, record.name, record.header, record.footer);
-    }
+}
 
+
+//пока не нужен
     private static GroupRecord convert(GroupData data) {
         var id = data.id();
         if ("".equals(id)) {
-            id = "0";
-        }
-        return new GroupRecord(Integer.parseInt(id), data.name(), data.header(), data.footer());
+             id = "0";
     }
-
+    return new GroupRecord(Integer.parseInt(id), data.name(), data.header(), data.footer());
+}
+    //2
     public List<GroupData> getGroupList() {
         return convertList(sessionFactory.fromSession(session -> {
             return session.createQuery("from GroupRecord", GroupRecord.class).list();
         }));
     }
-
     public long getGroupCount() {
                 return sessionFactory.fromSession(session -> {
             return session.createQuery("select count (*) from GroupRecord", Long.class).getSingleResult();
         });
     }
-
     public void createGroup(GroupData groupData) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
@@ -94,10 +72,27 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
-    public List<ContactData> getContactsInGroup(GroupData group) {
-        return sessionFactory.fromSession( session -> {
-            return convertContactList(session.getReference(GroupRecord.class, group.id()).contacts);
-        });
+    //4 для 3 контакты
+    private static ContactData convertContact(ContactRecord record) {
+        return new ContactData("" + record.id, record.firstname,
+                record.lastname, record.address);
+    }
+
+    //3 для 2 контакты
+    public List<ContactData> convertListContact(List<ContactRecord> records) {
+        List<ContactData> result = new ArrayList<>();
+        for (var record : records) {
+            result.add(convertContact(record));
+        }
+        return result;
 
     }
+
+    //2 для контакта
+    public List<ContactData> getContactList() {
+        return convertListContact(sessionFactory.fromSession(session -> {
+        return session.createQuery("from ContactRecord", ContactRecord.class).list();
+    }));
 }
+}
+

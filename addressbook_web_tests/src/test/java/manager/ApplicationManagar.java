@@ -14,7 +14,7 @@ public class ApplicationManagar {
     private LoginHelper session;
     private GroupHelper groups;
     private ContactHelper contacts;
-    private JdbsHelper jdbs;
+    private JdbcHelper jdbc;
     private HibernateHelper hbm;
     private Properties properties;
 
@@ -59,11 +59,11 @@ public class ApplicationManagar {
         return session;
     }
 
-    public JdbsHelper jdbs(){
-        if (jdbs == null) {
-            jdbs = new JdbsHelper(this);
+    public JdbcHelper jdbc(){
+        if (jdbc == null) {
+            jdbc = new JdbcHelper(this);
         }
-        return jdbs;
+        return jdbc;
     }
 
     public HibernateHelper hbm(){

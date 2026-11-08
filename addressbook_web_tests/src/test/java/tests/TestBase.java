@@ -32,7 +32,7 @@ public class TestBase {
 
     @AfterEach
     void checkDatabaseConsistency() {
-        app.jdbs().checkConsistency();
+        app.jdbc().checkConsistency();
 
     }
 

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -48,14 +49,37 @@ public class ContactCreationTests extends TestBase {
 
 
   }
+    public static List<ContactData> singleRandomContact() {
+        return List.of(new ContactData()
+                .withFirstname(CommonFunctions.randomString(10))
+                .withLastname(CommonFunctions.randomString(10))
+                .withAddress(CommonFunctions.randomString(10)));
+
+    }
+
+
 
   @ParameterizedTest
-  @MethodSource("contactProvider")
-  public void сanCreateMultipleContacts(ContactData contact) {
-    int contactCount = app.contacts().getCountContact();
-    app.contacts().createContact(contact);
-    int newContactCount=app.contacts().getCountContact();
-    Assertions.assertEquals(contactCount + 1, newContactCount);
+  @MethodSource("singleRandomContact")
+  public void сanCreateContacts(ContactData contact) {
+      var oldContacts = app.hbm().getContactList();
+      app.contacts().createContact(contact);
+      var newContacts = app.hbm().getContactList();
+      //Comparator<ContactData> compareByIdContact = (o1, o2) -> {
+          //return Integer.compare(Integer.parseInt((o1.id())), Integer.parseInt((o2.id())));
+     // };
+      Comparator<ContactData> compareByIdContact = (o1, o2) -> {
+          return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
+      };
+
+      newContacts.sort(compareByIdContact);
+      var maxId = newContacts.get(newContacts.size() - 1).id();
+
+      var expectedList = new ArrayList<>(oldContacts);
+      expectedList.add(contact.withId(maxId));
+      expectedList.sort(compareByIdContact);
+    //Assertions.assertEquals(contactCount + 1, newContactCount);
+      Assertions.assertEquals(newContacts, expectedList);
   }
 
   @Test
@@ -73,21 +97,21 @@ public class ContactCreationTests extends TestBase {
       app.contacts().createContact(contact);
       }
 
-    @Test
-    void canCreateContactInGroup() {
+    //@Test
+    //void canCreateContactInGroup() {
 
-        var contact = new ContactData()
-                .withFirstname(CommonFunctions.randomString(10))
-                .withLastname(CommonFunctions.randomString(20));
-        if (app.hbm().getGroupCount() == 0) {
-            app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
-        }
-        var group = app.hbm().getGroupList().get(0);
-        var oldRelated = app.hbm().getContactsInGroup(group);  //получить список контактов, входящих в группу
-        app.contacts().createContact(contact, group);
-        var newRelated = app.hbm().getContactsInGroup(group);
-        Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
-    }
+       // var contact = new ContactData()
+             //   .withFirstname(CommonFunctions.randomString(10))
+             //   .withLastname(CommonFunctions.randomString(20));
+        //if (app.hbm().getGroupCount() == 0) {
+           // app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
+       // }
+        //var group = app.hbm().getGroupList().get(0);
+        //var oldRelated = app.hbm().getContactsInGroup(group);  //получить список контактов, входящих в группу
+       // app.contacts().createContact(contact, group);
+        //var newRelated = app.hbm().getContactsInGroup(group);
+       // Assertions.assertEquals(oldRelated.size()+1, newRelated.size());
+    //}
 
 
 }

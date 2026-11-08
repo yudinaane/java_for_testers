@@ -19,6 +19,11 @@ public record ContactData(String id, String firstname,
 
     }
 
+    public ContactData(String id, String firstname, String lastname, String address) {
+        this(id, firstname, "", lastname, "", "",
+                "", address, "", "", "", "", "");
+    }
+
     public ContactData withId(String id) {
         return new ContactData(id, this.firstname, this.middlename, this.lastname, this.nickname, this.title,
                 this.company, this.address, this.home, this.mobile, this.work, this.email, this.email2);
@@ -56,6 +61,11 @@ public record ContactData(String id, String firstname,
 
     public ContactData withRandom(String lastname, String home, String mobile, String email) {
         return new ContactData(this.id, firstname, this.middlename, lastname, this.nickname, this.title,
+                this.company, address, home, mobile, this.work, email, this.email2);
+    }
+
+    public ContactData withHbm(String id, String firstname, String lastname, String address) {
+        return new ContactData(id, firstname, this.middlename, lastname, this.nickname, this.title,
                 this.company, address, home, mobile, this.work, email, this.email2);
     }
 
