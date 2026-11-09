@@ -144,5 +144,26 @@ public class ContactHelper extends HelperBase {
         }
         return contacts;
     }
+
+
+
+    //удал1
+    public void removeContactFromGroup(GroupData group, ContactData contact) {
+        selectGroupRight(group);//выбрать группу
+        selectContact(contact); //проставив чек-бокс
+        removeContactFooter();//нажать кнопку Remove
+        //returnToHomePage();
+    }
+    //удал2 (барвть группу правый верх угол)
+    private void selectGroupRight(GroupData group) {
+        new Select(manager.driver.findElement(By.name("group"))).selectByValue(group.id()); //находить на странице нужный элемент
+    }
+
+
+
+    //удал3
+    private void removeContactFooter() {
+        click(By.name("remove"));
+    }
 }
 

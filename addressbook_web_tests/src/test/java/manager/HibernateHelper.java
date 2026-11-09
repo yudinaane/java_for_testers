@@ -132,10 +132,10 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
-    public List<GroupData> getGroupsToHomePage(ContactData contact) {
-        return sessionFactory.fromSession(session -> {
-            return convertList(session.get(ContactRecord.class, contact.id()).groups);
-        });
-    }
+    //public List<GroupData> getGroupsToHomePage(ContactData contact) {
+        //return sessionFactory.fromSession(session -> {
+          //  return convertList(session.get(ContactRecord.class, contact.id()).groups);
+        //});
+    //}
 }
 

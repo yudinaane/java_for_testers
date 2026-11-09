@@ -10,24 +10,18 @@ import java.util.List;
 
 public class ContactRecord {
     @Id
-    @Column(name = "id")
+
     public int id;
 
-    @Column(name = "firstname")
+
     public String firstname;
 
-    @Column(name = "lastname")
+
     public String lastname;
 
-    @Column(name = "address")
+
     public String address;
 
-
-    @ManyToMany
-    @JoinTable(name = "address_in_groups",
-            joinColumns = @JoinColumn(name = "group_id"),
-            inverseJoinColumns = @JoinColumn(name="id"))
-    public List<GroupRecord> groups;
 
 
 

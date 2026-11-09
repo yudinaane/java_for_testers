@@ -52,10 +52,11 @@ public class ContactRemovalTests extends TestBase{
             app.hbm().createGroup(new GroupData("", "group_name", "group_header", "group_footer"));
         }
 
-        var group = app.hbm().getGroupList().get(0);
-        var oldRelated = app.hbm().getGroupsToHomePage(contact);  //получить список групп
-        app.groups().removeContactFromGroup(group, contact);
-        var newRelated = app.hbm().getGroupsToHomePage(contact);
+        var group = app.hbm().getGroupList().get(0); //получить список групп и выбрать первую группу
+        var oldRelated = app.hbm().getContactsInGroupToHomePage(group);
+        // var oldRelated = app.hbm().getGroupsToHomePage(contact);  //получить список контактов, кот-ые входят в эту группу
+        app.contacts().removeContactFromGroup(group, contact);
+        var newRelated = app.hbm().getContactsInGroupToHomePage(group);
         Assertions.assertEquals(oldRelated.size()-1, newRelated.size());
     }
 
