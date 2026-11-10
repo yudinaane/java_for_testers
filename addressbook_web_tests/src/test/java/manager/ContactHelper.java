@@ -39,13 +39,13 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-
-    public void addContactInGroup(ContactData contact, GroupData group) {
-        selectContact(contact); //проставив чек-бокс
-        selectGroupInHomePage(group); //выбрать группу на главной
-        submitGroupCreation(); //нажать ADD TO
+// не надо
+    //public void addContactInGroup(ContactData contact, GroupData group) {
+       // selectContact(contact); //проставив чек-бокс
+        //selectGroupInHomePage(group); //выбрать группу на главной
+       // submitGroupCreation(); //нажать ADD TO
         //returnToHomePage();
-    }
+   // }
  //6.5
     private void selectGroupInHomePage(GroupData group) {
         new Select(manager.driver.findElement(By.name("to_group"))).selectByValue(group.id()); //находить на странице нужный элемент
