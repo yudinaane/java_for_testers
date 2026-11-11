@@ -68,7 +68,7 @@ public class GroupCreationTests extends TestBase {
         var oldGroups = app.hbm().getGroupList();
         app.groups().createGroup(group);
         var newGroups = app.hbm().getGroupList();
-       Comparator<GroupData> compareById = (o1, o2) -> {
+        Comparator<GroupData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt((o1.id())), Integer.parseInt((o2.id()))); //сравнение двух чисел - идентификаоров групп, которые конвертированы в числа
 
         };
