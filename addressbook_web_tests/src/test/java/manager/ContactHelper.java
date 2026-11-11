@@ -138,7 +138,8 @@ public class ContactHelper extends HelperBase {
         for (var td : tds) {
             //var firstName = td.getText();
             var lastName = td.getText();
-            var checkbox = td.findElement(By.name("selected[]"));
+            //var checkbox = td.findElement(By.name("selected[]"));
+            var checkbox = td.findElement(By.xpath("//input[@name='selected[]']"));
             var id = checkbox.getAttribute("//input[@type=\"checkbox\"]");
             contacts.add(new ContactData().withId(id).withLastname(lastName));
         }
@@ -178,8 +179,30 @@ public class ContactHelper extends HelperBase {
     }
 
     public String getAddress(ContactData contact) {
-        return manager.driver.findElement(By.xpath(
+       return manager.driver.findElement(By.xpath(
                 String.format("//input[@id=%s]/../../td[4]", contact.id()))).getText();
+    }
+
+
+
+    public String getAddressModify(ContactData contact){
+        selectEdit();  //нажать ручку
+        return getAddressOnEditPage(contact);             //получить адресс
+    }
+
+
+    public void  selectEdit(){
+        click (By.xpath("//img[@title='Edit']"));
+    }
+
+    public String  getAddressOnEditPage(ContactData contact){
+       // var addressValue = manager.driver.findElement(By.name("address"), contact.id());
+//        return addressValue.getText();
+        return manager.driver.findElement(By.name(
+                String.format("address", contact.id()))).getText();
+
+
+
     }
 }
 

@@ -39,12 +39,13 @@ public class ContactInfoTests extends TestBase{
 
     @Test
     void testAddress(){
-        var contacts = app.hbm().getContactList();
+        var contacts = app.contacts().getListContact();
         //добавить проверку на случай отстусвия контактов
         var contact = contacts.get(0);
-        var address = app.contacts().getAddress(contact); //получаем телефоны для контакта с заданным идентификатором
+        var address = app.contacts().getAddress(contact); //получаем адрес для контакта с заданным идентификатором на Главной
+        var expected = app.contacts().getAddressModify(contact);
         //склеиваем телефоны из бд, пустые пропускаем:
-        var expected = Stream.of(contact.address());
+        //var expected = Stream.of(contact.address());
         Assertions.assertEquals(expected, address);
 
     }
